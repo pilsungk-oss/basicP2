@@ -9,35 +9,13 @@
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.8"/>
     <property name="source" value="1.8"/>
-    <path id="JUnit 5.libraryclasspath">
-        <pathelement location="../../../../Program Files/eclipse/plugins/org.junit.jupiter.api_5.7.0.v20201026-1537.jar"/>
-        <pathelement location="../../../../Program Files/eclipse/plugins/org.junit.jupiter.engine_5.7.0.v20201026-1537.jar"/>
-        <pathelement location="../../../../Program Files/eclipse/plugins/org.junit.jupiter.migrationsupport_5.7.0.v20201026-1537.jar"/>
-        <pathelement location="../../../../Program Files/eclipse/plugins/org.junit.jupiter.params_5.7.0.v20201026-1537.jar"/>
-        <pathelement location="../../../../Program Files/eclipse/plugins/org.junit.platform.commons_1.7.0.v20201026-1537.jar"/>
-        <pathelement location="../../../../Program Files/eclipse/plugins/org.junit.platform.engine_1.7.0.v20201026-1537.jar"/>
-        <pathelement location="../../../../Program Files/eclipse/plugins/org.junit.platform.launcher_1.7.0.v20201026-1537.jar"/>
-        <pathelement location="../../../../Program Files/eclipse/plugins/org.junit.platform.runner_1.7.0.v20201026-1537.jar"/>
-        <pathelement location="../../../../Program Files/eclipse/plugins/org.junit.platform.suite.api_1.7.0.v20201026-1537.jar"/>
-        <pathelement location="../../../../Program Files/eclipse/plugins/org.junit.vintage.engine_5.7.0.v20201026-1537.jar"/>
-        <pathelement location="../../../../Program Files/eclipse/plugins/org.opentest4j_1.2.0.v20190826-0900.jar"/>
-        <pathelement location="../../../../Program Files/eclipse/plugins/org.apiguardian_1.1.0.v20190826-0900.jar"/>
-        <pathelement location="../../../../Program Files/eclipse/plugins/org.junit_4.13.0.v20200204-1500.jar"/>
-        <pathelement location="../../../../Program Files/eclipse/plugins/org.hamcrest.core_1.3.0.v20180420-1519.jar"/>
-    </path>
     <path id="Hello.classpath">
         <pathelement location="bin"/>
-        <path refid="JUnit 5.libraryclasspath"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
-                <exclude name="**/*.java"/>
-            </fileset>
-        </copy>
-        <copy includeemptydirs="false" todir="bin">
-            <fileset dir="test">
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
@@ -52,7 +30,6 @@
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
-            <src path="test"/>
             <classpath refid="Hello.classpath"/>
         </javac>
     </target>
